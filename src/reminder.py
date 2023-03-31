@@ -8,7 +8,10 @@ class PrefixedReminder:
 
 
 class PoliteReminder(PrefixedReminder):
-    def __init__(self, text):
-        super().__init__(prefix="please")
+    def __init__(self, text, date=None):
+        super().__init__('Please remember to ')
         self.text = self.prefix + text
+
+    def __iter__(self):
+        return iter([self.text])
 
